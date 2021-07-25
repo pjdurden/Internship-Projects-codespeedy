@@ -1,0 +1,61 @@
+The given implementation of DSU saves
+the sets as trees which are balanced according to the rank of the respective
+elements in their sets.
+
+Standard Libraries used in implementation-
+* cmath
+* vector
+* list
+* set
+* map
+* iostream
+
+Average runtime for a set of 100 million elements (for a CPU with 50M
+calculations/second ) -
+* Naive Implementation - 4 seconds
+* Current Implementation using DSU(Trees) - 16 millisecond
+
+Implementatoin ( 0 - indexed )-
+The file dsu.h has a Disjoint set Union class implemented which has following-
+* private members - vector par(parent),setsize and rank.
+* public members - Constructor(),find(),issame(),unionset(),sizeofset(),
+disjointsets().
+
+Following is the definition and implementation of the following members -
+
+private:
+
+* vector par - It is a vector that keeps the track of the root of each set.
+* set size - It is a vector that keeps the size of the tree of each
+element.
+* rank - It is a vector that keeps track of the rank of the current
+element in the tree.
+
+public:
+
+You can define the object of the class using the following syntax -
+dsuset object_name(long long n);
+this calls the constructor which initializes n disjoint sets.
+
+* long long object_name.find(long long i)
+This finds the root of the tree the current element i is part of.
+
+* long long object_name.issame(long long i,long long j)
+This return true if both elements are in the same tree.
+
+* void object_name.unionset(long long i,long long j)
+This function clubs together both the sets which have i and j as
+elements into a single set.
+
+* long long object_name.sizeofset(long long i)
+This returns the size of the tree, the current element i is part of.
+
+* long long object_name.disjointsets()
+This returns the number of disjoint sets(trees).
+
+The following implementation has a lot of potential in many applications
+regarding the set theory and is majorly used in creating trees and finding
+groups in undirected graphs. Famous Graph algorithm Kruskal algorithm is also
+implemented using DSU.
+
+
